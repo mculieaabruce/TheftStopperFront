@@ -14,6 +14,15 @@ import { CrearpoliciaComponent } from './Components/servicios/policia/crearpolic
 import { CiudadanoComponent } from './Components/servicios/ciudadano/ciudadano.component';
 import { ListarciudadanoComponent } from './Components/servicios/ciudadano/listarciudadano/listarciudadano.component';
 import { CrearciudadanoComponent } from './Components/servicios/ciudadano/crearciudadano/creaciudadano.component';
+import { AlertamovilComponent } from './Components/servicios/alertamovil/alertamovil.component';
+import { ListaralertaComponent } from './Components/servicios/alertamovil/listaralerta/listaralerta.component';
+import { CrearalertaComponent } from './Components/servicios/alertamovil/crearalerta/crearalerta.component';
+import { CasoComponent } from './Components/servicios/caso/caso.component';
+import { ListarcasoComponent } from './Components/servicios/caso/listarcaso/listarcaso.component';
+import { CrearcasoComponent } from './Components/servicios/caso/crearcaso/crearcaso.component';
+import { ComisariaComponent } from './Components/servicios/comisaria/comisaria.component';
+import { ListarcomisariaComponent } from './Components/servicios/comisaria/listarcomisaria/listarcomisaria.component';
+import { CrearcomisariaComponent } from './Components/servicios/comisaria/crearcomisaria/crearcomisaria.component';
 
 export const routes: Routes = [
     {'path': '', component:InicioComponent},
@@ -41,6 +50,30 @@ export const routes: Routes = [
             },
             {
                 path:'crear',component:CrearciudadanoComponent
+            }
+        ]},
+        {'path': 'alertamovil',component:AlertamovilComponent, children:[
+            {
+                path:'listar',component:ListaralertaComponent
+            },
+            {
+                path:'crear',component:CrearalertaComponent
+            }
+        ]},
+        {'path': 'caso',component:CasoComponent, children:[
+            {
+                path:'listar',component:ListarcasoComponent
+            },
+            {
+                path:'crear',component:CrearcasoComponent
+            }
+        ]},
+        {'path': 'comisaria',component:ComisariaComponent, children:[
+            {
+                path:'listar',component:ListarcomisariaComponent
+            },
+            {
+                path:'crear',component:CrearcomisariaComponent
             }
         ]}
     ]},
