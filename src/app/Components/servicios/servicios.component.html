@@ -1,0 +1,62 @@
+<div class="grid grid-cols-7 bg-red-400">
+        <button mat-button [matMenuTriggerFor]="menuAlerta">
+            <mat-icon>warning</mat-icon>
+            Alerta Movil
+        </button> 
+      <button mat-button [matMenuTriggerFor]="menuCaso">
+        <mat-icon>work</mat-icon>
+        Caso
+      </button>
+      <button mat-button [matMenuTriggerFor]="menuCiudadano">
+        <mat-icon>contacts</mat-icon>
+        Ciudadano
+      </button>
+      <button mat-button [matMenuTriggerFor]="menuComisaria">
+        <mat-icon>location_city</mat-icon>
+        Comisaria
+      </button>
+      <button mat-button [matMenuTriggerFor]="menuDistrito">
+        <mat-icon>pin_drop</mat-icon>
+        Distrito
+      </button>
+      <button mat-button [matMenuTriggerFor]="menuHorario">
+        <mat-icon>schedule</mat-icon>
+        Horario
+      </button>
+      <button mat-button [matMenuTriggerFor]="menuPolicia">
+        <mat-icon>local_police</mat-icon>
+        Policia
+      </button>
+    <mat-menu #menuAlerta="matMenu">
+        <button mat-menu-item routerLink="/">Listar</button>
+        <button mat-menu-item routerLink="/">Registrar</button>
+    </mat-menu>
+    <mat-menu #menuCaso="matMenu">
+        <button mat-menu-item routerLink="/">Listar</button>
+        <button mat-menu-item routerLink="/">Registrar</button>
+    </mat-menu>
+    <mat-menu #menuCiudadano="matMenu">
+        <button mat-menu-item routerLink="/servicios/ciudadano">Listar</button>
+        <button mat-menu-item routerLink="/servicios/ciudadano/crear">Registrar</button>
+    </mat-menu>
+    <mat-menu #menuComisaria="matMenu">
+        <button mat-menu-item routerLink="/">Listar</button>
+        <button mat-menu-item routerLink="/">Registrar</button>
+    </mat-menu>
+    <mat-menu #menuDistrito="matMenu">
+        <button mat-menu-item routerLink="/servicios/distrito">Listar</button>
+        <button mat-menu-item routerLink="/servicios/distrito/crear">Registrar</button>
+    </mat-menu>
+    <mat-menu #menuHorario="matMenu">
+        <button mat-menu-item routerLink="/">Listar</button>
+        <button mat-menu-item routerLink="/">Registrar</button>
+    </mat-menu>
+    <mat-menu #menuPolicia="matMenu">
+        <button mat-menu-item routerLink="/servicios/policia">Listar</button>
+        <button mat-menu-item routerLink="/servicios/policia/crear">Registrar</button>
+    </mat-menu>
+</div>
+
+<router-outlet></router-outlet>
+
+

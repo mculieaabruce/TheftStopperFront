@@ -1,0 +1,78 @@
+<div class="title-container">
+    <h2 class="title">Registro de Policias</h2>
+    <form [formGroup]="form" (submit)="registrar()" class="example-form">
+      <mat-form-field class="example-full-width"  *ngIf="edicion" >
+        <mat-label>Codigo</mat-label>
+        <input matInput placeholder="Codigo" formControlName="codigo" />
+      </mat-form-field>
+      <br/>
+      <mat-form-field class="example-full-width">
+        <mat-label>Nombre:</mat-label>
+        <textarea
+          matInput
+          placeholder="Nombre"
+          formControlName="nombre"
+        ></textarea>
+        <mat-error *ngIf="form.get('nombre')?.hasError('required')"
+          >El Nombre es obligatorio.</mat-error
+        >
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Apellido:</mat-label>
+        <input matInput placeholder="Apellido" formControlName="apellido" />
+        <mat-error *ngIf="form.get('monto')?.hasError('required')"
+          >El Apellido es obligatorio.</mat-error
+        >
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Placa:</mat-label>
+        <input matInput placeholder="num_placa" formControlName="numPlaca" />
+        <mat-error *ngIf="form.get('numPlaca')?.hasError('required')"
+          >El Número de Placa es obligatorio.</mat-error
+        >
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Comisaria</mat-label>
+        <mat-select formControlName="comis">
+          <mat-option *ngFor="let c of listaComisarias" [value]="c.idComisaria">
+            {{ c.Nombre }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('comis')?.hasError('required')"
+          >La comisaría es obligatoria.</mat-error
+        >
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Hora Inicio</mat-label>
+        <mat-select formControlName="hora">
+          <mat-option *ngFor="let h of listaHorario" [value]="h.idHorario">
+            {{ h.horaInicio }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('hora')?.hasError('required')"
+          >El horario es Obligatorio.</mat-error
+        >
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Hora Fin</mat-label>
+        <mat-select formControlName="horaB">
+          <mat-option *ngFor="let c of listaHorario" [value]="c.idHorario">
+            {{ c.horaFin }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('horaB')?.hasError('required')"
+          >El horario es Obligatorio.</mat-error
+        >
+      </mat-form-field>
+      <br />
+      <button mat-raised-button color="primary">Aceptar</button>
+      <button mat-raised-button color="warn" routerLink="/policia">
+        Cancelar
+      </button>
+    </form>
+  </div>

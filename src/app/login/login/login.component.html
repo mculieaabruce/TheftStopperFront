@@ -1,0 +1,34 @@
+<div class="flex h-screen w-auto bg-red-300">
+    <div class="w-96 h-96 m-16 place-content-center flex-auto">
+        <p class="text-7xl font-serif text-center">Iniciar sesión</p>
+        <br/>
+        <p class="text-xl font-serif text-center">de verdad xfis inicia</p>
+    </div>
+    <br/>
+    <div class="w-auto m-32">
+        <form [formGroup]="form">
+            <mat-card>
+                <mat-card-content>
+                    <mat-card-title>Por favor ingresa tus datos para iniciar sesión T.T</mat-card-title>
+                    <br/>
+                    <mat-form-field class="w-full">
+                        <mat-label>Username </mat-label>
+                        <input matInput formControlName="user">
+                        <mat-error *ngIf="form.get('user')?.hasError('required')">El usuario es obligatorio</mat-error>
+                    </mat-form-field>
+                    <br/>
+                    <mat-form-field class="w-full">
+                        <mat-label>Password </mat-label>
+                        <input matInput formControlName="password">
+                        <mat-error *ngIf="form.get('password')?.hasError('required')">La contraseña es obligatoria</mat-error>
+                    </mat-form-field>
+                    <br/>
+                    <div class="place-content-center align-middle">
+                        <button mat-flat-button color="accent">Inicia sesión</button>
+                    </div>
+                    
+                </mat-card-content>
+            </mat-card>
+        </form>
+    </div>
+</div>

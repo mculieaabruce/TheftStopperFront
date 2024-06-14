@@ -1,0 +1,45 @@
+
+.comment-box {
+    background-color: beige;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+  }
+.forum {
+    padding: 120px;
+    padding-top: 2rem;
+    background-color: black; 
+    font-family: 'Arial', sans-serif; 
+    
+  }
+  
+  .comments {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+    background-color: black;
+  
+  }
+  
+  .comment {
+    background-color: #24194e; 
+    border: 1px solid beige; 
+    border-radius: 25px; 
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+  }
+  
+  .avatar {
+    width: 100px; 
+    height: 100px;
+    border-radius: 0%;
+    margin-right: 40px;
+   
+    
+  } 
+ 
+  
+  
+  

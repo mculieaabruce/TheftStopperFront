@@ -1,0 +1,74 @@
+<div class="title-container">
+    <h2 class="title">Registro de Ciudadanos</h2>
+  </div>
+  <div class="title-container">
+    <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+      <mat-form-field class="example-full-width" *ngIf="edicion">
+        <mat-label>Codigo</mat-label>
+        <input matInput placeholder="Codigo" formControlName="codigo" />
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>DNI:</mat-label>
+        <input
+          matInput
+          placeholder="Dni del ciudadano"
+          formControlName="dni"
+        />
+        <mat-error *ngIf="form.get('dni')?.hasError('required')"
+          >El dni es obligatorio.</mat-error
+        >
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Nombre del ciudadano:</mat-label>
+        <input
+          matInput
+          placeholder="Nombre del ciudadano"
+          formControlName="nombre"
+        />
+        <mat-error *ngIf="form.get('nombre')?.hasError('required')"
+          >El nombre es obligatorio.</mat-error
+        >
+      </mat-form-field>
+  
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Apellido del ciudadano:</mat-label>
+        <input
+          matInput
+          placeholder="Apellido del ciudadano"
+          formControlName="apellido"
+        />
+        <mat-error *ngIf="form.get('apellido')?.hasError('required')"
+          >El apellido es obligatorio.</mat-error
+        >
+      </mat-form-field>
+  
+      <br />
+      <mat-form-field appearance="fill" class="example-full-width">
+        <input
+          matInput
+          placeholder="Ingrese la fecha de nacimiento"
+          [matDatepicker]="picker"
+          formControlName="fechaNac"
+          [max]="maxFecha"
+        />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="form.get('fechaNac')?.hasError('required')"
+          >La fecha de nacimiento es obligatoria.</mat-error
+        >
+      </mat-form-field>
+  
+      <br />
+      <button mat-raised-button color="primary">Aceptar</button>
+      <button mat-raised-button color="warn" routerLink="/servicios/ciudadano">
+        <mat-icon> cancel_presentation</mat-icon>
+      </button>
+    </form>
+  </div>

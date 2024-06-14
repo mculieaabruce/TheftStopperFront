@@ -1,0 +1,36 @@
+<div class="tile-contairner">
+  <h2 class="title-container">Registro de Distritos</h2>
+</div>
+<div class="tile-contairner">
+  <form [formGroup]="form" (submit)="registrar()">
+    <mat-form-field class="example-full-width">
+      <mat-label>Nombre</mat-label>
+      <input matInput placeholder="Nombre" formControlName="nombre" />
+      <mat-error *ngIf="form.get('nombre')?.hasError('required')"
+        >El nombre es obligatorio.</mat-error
+      >
+    </mat-form-field>
+    <br />
+    <mat-form-field class="example-full-width">
+      <mat-label>Ubigeo</mat-label>
+      <input matInput placeholder="Ubigeo" formControlName="ubigeo" />
+      <mat-error *ngIf="form.get('ubigeo')?.hasError('required')"
+        >El Ubigeo es obligatorio.</mat-error
+      >
+    </mat-form-field>
+    <br />
+    <mat-form-field class="example-full-width">
+      <mat-label>Codigo Postal</mat-label>
+      <input
+        matInput
+        placeholder="Codigo Postal"
+        formControlName="codigoPostal"
+      />
+      <mat-error *ngIf="form.get('codigoPostal')?.hasError('required')"
+        >El Codigo Postal es obligatorio.</mat-error
+      >
+    </mat-form-field>
+    <br />
+    <button mat-raised-button color="primary">Aceptar</button>
+  </form>
+</div>
