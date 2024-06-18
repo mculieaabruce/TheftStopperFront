@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTable, MatTableModule } from '@angular/material/table';
 
 @Component({
   selector: 'app-listarcaso',
   standalone: true,
-  imports: [],
+  imports: [MatTableModule,MatPaginatorModule],
   templateUrl: './listarcaso.component.html',
   styleUrl: './listarcaso.component.css'
 })

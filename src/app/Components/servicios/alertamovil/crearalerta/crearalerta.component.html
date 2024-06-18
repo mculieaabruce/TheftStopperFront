@@ -56,9 +56,12 @@
           placeholder="Ingrese fecha"
           formControlName="fecha"
         >
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <ngx-mat-datetime-picker #picker></ngx-mat-datetime-picker>
-  
+            <mat-datepicker-toggle matSuffix [for]="$any(picker)"></mat-datepicker-toggle>
+        <ngx-mat-datetime-picker #picker [showSpinners]="true" [showSeconds]="false"
+        [stepHour]="1" [stepMinute]="1" [stepSecond]="1"
+        [touchUi]="false" [enableMeridian]="false"
+        [disableMinute]="false" [hideTime]="false"></ngx-mat-datetime-picker>
+
         <mat-error *ngIf="form.get('fecha')?.hasError('required')"
           >La fecha es obligatoria.</mat-error
         >

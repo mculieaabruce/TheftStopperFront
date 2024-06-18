@@ -20,7 +20,7 @@ import { AlertaMovilService } from '../../../../Services/alerta-movil.service';
   styleUrl: './listaralerta.component.css'
 })
 export class ListaralertaComponent implements OnInit{
-  dataSource: MatTableDataSource<alertaMovil> = new MatTableDataSource()
+  datasource: MatTableDataSource<alertaMovil> = new MatTableDataSource()
   displayedColumns:String[] = [
     'mensaje',
     'ubicacion',
@@ -32,12 +32,12 @@ export class ListaralertaComponent implements OnInit{
   constructor(private aS:AlertaMovilService){}
   ngOnInit(): void {
     this.aS.list().subscribe((data) => {
-      this.dataSource = new MatTableDataSource(data);
-      this.dataSource.paginator = this.paginator;
+      this.datasource = new MatTableDataSource(data);
+      this.datasource.paginator = this.paginator;
     });
     this.aS.getList().subscribe((data) => {
-      this.dataSource = new MatTableDataSource(data);
-      this.dataSource.paginator = this.paginator;
+      this.datasource = new MatTableDataSource(data);
+      this.datasource.paginator = this.paginator;
     });
   }
 }

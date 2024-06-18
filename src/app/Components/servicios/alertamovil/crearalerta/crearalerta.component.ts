@@ -1,4 +1,4 @@
-import { NgxMatDatetimePickerModule, NgxMatDatetimepicker, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
+import { NgxMatDatetimePickerModule, NgxMatDatetimepicker, NgxMatNativeDateModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
 import { CommonModule, NgIf } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -31,7 +31,8 @@ import { CiudadanoService } from '../../../../Services/ciudadano.service';
     MatNativeDateModule,
     FormsModule,
     MatSelectModule,
-    RouterLink
+    RouterLink,
+    NgxMatNativeDateModule,
   ],
   template: `
     <mat-datepicker #picker></mat-datepicker>
