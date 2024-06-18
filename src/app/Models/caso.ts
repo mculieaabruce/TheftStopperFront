@@ -1,4 +1,5 @@
 import { alertaMovil } from "./alertaMovil";
+import { foro } from "./foro";
 
 export class caso{
     id:number = 0;
