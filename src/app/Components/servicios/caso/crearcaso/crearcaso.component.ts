@@ -46,11 +46,10 @@ export class CrearcasoComponent implements OnInit{
   ) {}
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      descripcion: ['', Validators.required],
-      fecha: ['', Validators.required],
-      responsables:['',Validators.required],
-      monto: [ '', Validators.required ],
-      verde:['',Validators.required]
+      alerta: ['', Validators.required],
+      estado: ['', Validators.required],
+      comentario:['',Validators.required],
+      foro: [ '', Validators.required ],
     });
     this.aS.list().subscribe((data: alertaMovil[]) => {
       this.listaAlertas = data;
@@ -58,5 +57,20 @@ export class CrearcasoComponent implements OnInit{
     this.fS.list().subscribe((data: foro[]) => {
       this.listaforo = data;
     });
+  }
+  aceptar(): void {
+    if (this.form.valid) {
+      this.caso.alertaMovil = this.form.value.alerta;
+      this.caso.statusCase = this.form.value.estado;
+      this.caso.commentCase = this.form.value.comentario;
+      this.caso.foro=this.form.value.foro;
+      this.cS.insert(this.caso).subscribe((data) => {
+        this.cS.list().subscribe((data: caso[]) => {
+          this.cS.setList(data);
+        });
+      });
+
+      this.router.navigate(['caso']);
+    }
   }
 }
