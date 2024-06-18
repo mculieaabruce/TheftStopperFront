@@ -68,7 +68,7 @@ export class CrearciudadanoComponent implements OnInit{
       this.ciudadano.dni = this.form.value.dni;
       this.ciudadano.nombre = this.form.value.nombre;
       this.ciudadano.apellido = this.form.value.apellido;
-      this.ciudadano.fechaNac = this.form.value.fechaNac;
+      this.ciudadano.fecha_nac = this.form.value.fechaNac;
       this.cS.insert(this.ciudadano).subscribe((data) => {
         this.cS.list().subscribe((data) => {
           this.cS.setList(data);
@@ -85,9 +85,11 @@ export class CrearciudadanoComponent implements OnInit{
           dni: new FormControl(data.dni),
           nombre: new FormControl(data.nombre),
           apellido: new FormControl(data.apellido),
-          fechaNac: new FormControl(data.fechaNac),
+          fechaNac: new FormControl(data.fecha_nac),
         });
       });
     }
   }
 }
+
+

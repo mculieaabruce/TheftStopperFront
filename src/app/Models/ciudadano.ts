@@ -3,5 +3,5 @@ export class Ciudadano{
     dni:string="";
     nombre:string="";
     apellido:string="";
-    fechaNac:Date=new Date();
+    fecha_nac:Date=new Date();
 }

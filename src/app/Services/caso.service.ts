@@ -1,24 +1,23 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environments';
-import { Subject } from 'rxjs';
-import { foro } from '../Models/foro';
+import { caso } from '../Models/caso';
 import { HttpClient } from '@angular/common/http';
+import { Subject } from 'rxjs';
 const base_url=environment.base
 @Injectable({
   providedIn: 'root'
 })
-export class ForoService {
-
+export class CasoService {
   private url=`${base_url}/ciudadano`
-  private listaCambio = new Subject<foro[]>()
+  private listaCambio = new Subject<caso[]>()
   constructor(private httpClient:HttpClient) { }
   list(){
-    return this.httpClient.get<foro[]>(this.url);
+    return this.httpClient.get<caso[]>(this.url);
   }
-  insert(p:foro){
+  insert(p:caso){
     return this.httpClient.post(this.url,p);
   }
-  setList(listaNueva: foro[]) {
+  setList(listaNueva: caso[]) {
     this.listaCambio.next(listaNueva);
   }
   getList() {

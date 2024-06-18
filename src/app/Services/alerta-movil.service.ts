@@ -1,24 +1,23 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { alertaMovil } from '../Models/alertaMovil';
 import { environment } from '../../environments/environments';
 import { Subject } from 'rxjs';
-import { foro } from '../Models/foro';
-import { HttpClient } from '@angular/common/http';
 const base_url=environment.base
 @Injectable({
   providedIn: 'root'
 })
-export class ForoService {
-
+export class AlertaMovilService {
   private url=`${base_url}/ciudadano`
-  private listaCambio = new Subject<foro[]>()
+  private listaCambio = new Subject<alertaMovil[]>()
   constructor(private httpClient:HttpClient) { }
   list(){
-    return this.httpClient.get<foro[]>(this.url);
+    return this.httpClient.get<alertaMovil[]>(this.url);
   }
-  insert(p:foro){
+  insert(p:alertaMovil){
     return this.httpClient.post(this.url,p);
   }
-  setList(listaNueva: foro[]) {
+  setList(listaNueva: alertaMovil[]) {
     this.listaCambio.next(listaNueva);
   }
   getList() {
