@@ -14,14 +14,10 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { CommonModule, NgIf } from '@angular/common';
 import { ActivatedRoute, Params, Router, RouterLink } from '@angular/router';
-
-
 import { Policia } from '../../../../Models/policia';
 import { Comisaria } from '../../../../Models/comisaria';
-import { Horario } from '../../../../Models/horario';
 import { PoliciaService } from '../../../../Services/policia.service';
 import { ComisariaService } from '../../../../Services/comisaria.service';
-import { HorarioService } from '../../../../Services/horario.service';
 
 @Component({
   selector: 'app-crearpolicia',
@@ -59,7 +55,6 @@ export class CrearpoliciaComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private cS: ComisariaService,
-    private hS: HorarioService,
     private route:ActivatedRoute
   ) {}
   ngOnInit(): void {
