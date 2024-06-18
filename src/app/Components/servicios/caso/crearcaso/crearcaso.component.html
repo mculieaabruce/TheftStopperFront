@@ -1,1 +1,60 @@
-<p>crearcaso works!</p>
+<div class="title-container">
+    <h2 class="title">Registro de Mantenimientos</h2>
+    <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+        <br />
+  
+        <mat-form-field class="example-full-width">
+          <mat-label>Alerta Movil</mat-label>
+          <mat-select formControlName="alerta">
+            <mat-option *ngFor="let c of listaAlertas" [value]="c.idAlert">
+              {{ c.idAlert }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('alerta')?.hasError('required')"
+            >La alerta es obligatoria.</mat-error
+          >
+        </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Estado</mat-label>
+        <mat-select formControlName="estado">
+          <mat-option *ngFor="let g of listaEstados" [value]="g.value">
+            {{ g.viewValue }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('estado')?.hasError('required')"
+          >El estado es obligatorio.</mat-error
+        >
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Comentario:</mat-label>
+        <textarea
+          matInput
+          placeholder="Comentario"
+          formControlName="comentario"
+        ></textarea>
+        <mat-error *ngIf="form.get('comentario')?.hasError('required')"
+          >El comentario es obligatorio.</mat-error
+        >
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Foro</mat-label>
+        <mat-select formControlName="foro">
+          <mat-option *ngFor="let g of listaforo" [value]="g.id">
+            {{ g.id }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('estado')?.hasError('required')"
+          >Indicar a que foro pertenece.</mat-error
+        >
+      </mat-form-field>
+      <br />
+      <button mat-raised-button color="primary">Aceptar</button>
+      <button mat-raised-button color="warn" routerLink="/mantenimientos">
+        Cancelar
+      </button>
+    </form>
+  </div>
+  
