@@ -12,12 +12,8 @@ import { AlertaMovilService } from '../../../../Services/alerta-movil.service';
 @Component({
   selector: 'app-listaralerta',
   standalone: true,
-  imports: [MatIconModule,
+  imports: [
     MatTableModule,
-    MatFormFieldModule,
-    RouterLink,
-    MatInputModule,
-    MatButtonModule,
     MatPaginatorModule
   ],
   templateUrl: './listaralerta.component.html',
@@ -26,7 +22,6 @@ import { AlertaMovilService } from '../../../../Services/alerta-movil.service';
 export class ListaralertaComponent implements OnInit{
   dataSource: MatTableDataSource<alertaMovil> = new MatTableDataSource()
   displayedColumns:String[] = [
-    'codigo',
     'mensaje',
     'ubicacion',
     'comentario',

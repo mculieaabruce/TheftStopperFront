@@ -1,1 +1,74 @@
-<p>crearalerta works!</p>
+<div class="title-container">
+    <h2 class="title">Registro de Alertas</h2>
+    <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Mensaje:</mat-label>
+        <textarea
+          matInput
+          placeholder="Mensaje"
+          formControlName="mensaje"
+        ></textarea>
+        <mat-error *ngIf="form.get('mensaje')?.hasError('required')"
+          >El mensaje es obligatorio.</mat-error
+        >
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Ubicación</mat-label>
+        <mat-select formControlName="ubicacion">
+          <mat-option *ngFor="let g of ubicaciones" [value]="g.value">
+            {{ g.viewValue }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('ubicacion')?.hasError('required')"
+          >La ubicación es obligatoria.</mat-error
+        >
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Comentario</mat-label>
+        <textarea
+          matInput
+          placeholder="Comentario"
+          formControlName="comentario"
+        ></textarea>
+        <mat-error *ngIf="form.get('mensaje')?.hasError('required')"
+          >El comentario es obligatorio.</mat-error
+        >
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Ciudadano</mat-label>
+        <mat-select formControlName="ciudadano">
+          <mat-option *ngFor="let c of listaCiudadanos" [value]="c.idCitizen">
+            {{ c.citizenName }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('ciudadano')?.hasError('required')"
+          >El ciudadano es Obligatorio.</mat-error
+        >
+      </mat-form-field>
+      <br />
+      
+      <mat-form-field appearance="fill" class="example-full-width">
+        <input matInput [ngxMatDatetimePicker]="picker"
+          placeholder="Ingrese fecha"
+          formControlName="fecha"
+        >
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <ngx-mat-datetime-picker #picker></ngx-mat-datetime-picker>
+  
+        <mat-error *ngIf="form.get('fecha')?.hasError('required')"
+          >La fecha es obligatoria.</mat-error
+        >
+      </mat-form-field>
+      <br />
+
+      <button mat-raised-button color="primary">Aceptar</button>
+      <button mat-raised-button color="warn" routerLink="/alertamovil">
+        Cancelar
+      </button>
+    </form>
+  </div>
+  
