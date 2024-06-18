@@ -41,8 +41,8 @@
       <mat-form-field class="example-full-width">
         <mat-label>Ciudadano</mat-label>
         <mat-select formControlName="ciudadano">
-          <mat-option *ngFor="let c of listaCiudadanos" [value]="c.idCitizen">
-            {{ c.citizenName }}
+          <mat-option *ngFor="let c of listaCiudadanos" [value]="c.id">
+            {{ c.nombre }}
           </mat-option>
         </mat-select>
         <mat-error *ngIf="form.get('ciudadano')?.hasError('required')"
