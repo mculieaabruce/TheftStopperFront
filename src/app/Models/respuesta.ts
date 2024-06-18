@@ -1,4 +1,4 @@
-export class Respuesta {
+export class respuesta {
   idRespuesta: number = 0;
   contenido: String = '';
   fechaCreacion: Date = new Date(Date.now());

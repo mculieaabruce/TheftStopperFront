@@ -1,8 +1,7 @@
-import { User } from "./User";
+import { Users } from "./User";
 
-export class Role{
+export class roles{
     id:number = 0;
     rol:string = "";
-    user:User[] =[];
-    enabled:boolean = false;
+    user:Users = new Users();
 }

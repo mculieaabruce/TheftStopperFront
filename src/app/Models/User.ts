@@ -1,9 +1,6 @@
-import {Role} from "./Role"
-
-export class User{
+export class Users{
     id:number = 0;
     username:string = "";
     password:string = "";
     enabled:boolean = false;
-    roles:Role[] = [];
 }

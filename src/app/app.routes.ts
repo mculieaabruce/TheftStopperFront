@@ -23,10 +23,38 @@ import { CrearcasoComponent } from './Components/servicios/caso/crearcaso/crearc
 import { ComisariaComponent } from './Components/servicios/comisaria/comisaria.component';
 import { ListarcomisariaComponent } from './Components/servicios/comisaria/listarcomisaria/listarcomisaria.component';
 import { CrearcomisariaComponent } from './Components/servicios/comisaria/crearcomisaria/crearcomisaria.component';
+import { ForoComponent } from './Components/servicios/foro/foro.component';
+import { PublicacionComponent } from './Components/servicios/foro/publicacion/publicacion.component';
+import { ListarpubliComponent } from './Components/servicios/foro/publicacion/listarpubli/listarpubli.component';
+import { CrearpubliComponent } from './Components/servicios/foro/publicacion/crearpubli/crearpubli.component';
+import { RespuestaComponent } from './Components/servicios/respuesta/respuesta.component';
+import { ListarrespComponent } from './Components/servicios/foro/publicacion/respuesta/listarresp/listarresp.component';
+import { CrearrespComponent } from './Components/servicios/foro/publicacion/respuesta/crearresp/crearresp.component';
 
 export const routes: Routes = [
     {'path': '', component:InicioComponent},
-    {'path': 'forum', component:ForumComponent},
+    {'path': 'foro', component:ForoComponent,children:[
+        {
+            path:'publicacion',component:PublicacionComponent,children:[
+                {
+                    path:'listar',component:ListarpubliComponent
+                },
+                {
+                    path:'crear',component:CrearpubliComponent
+                },
+                {
+                    path:'respuesta',component:RespuestaComponent,children:[
+                        {
+                            path:'listar',component:ListarrespComponent
+                        },
+                        {
+                            path:'crear',component:CrearrespComponent
+                        },
+                    ]
+                },
+            ]
+        },
+    ]},
     {'path': 'servicios', component:ServiciosComponent, children:[
         {'path': 'distrito',component:DistritoComponent, children:[
             {
