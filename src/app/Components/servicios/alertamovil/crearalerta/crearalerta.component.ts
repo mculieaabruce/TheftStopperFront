@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 @Component({
   selector: 'app-crearalerta',

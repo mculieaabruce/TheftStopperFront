@@ -14,14 +14,10 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { CommonModule, NgIf } from '@angular/common';
 import { ActivatedRoute, Params, Router, RouterLink } from '@angular/router';
-
-
 import { Policia } from '../../../../Models/policia';
 import { Comisaria } from '../../../../Models/comisaria';
-import { Horario } from '../../../../Models/horario';
 import { PoliciaService } from '../../../../Services/policia.service';
 import { ComisariaService } from '../../../../Services/comisaria.service';
-import { HorarioService } from '../../../../Services/horario.service';
 
 @Component({
   selector: 'app-crearpolicia',
@@ -47,19 +43,24 @@ export class CrearpoliciaComponent implements OnInit {
   edicion:boolean = false;
   id:number= 0;
   listaComisarias: Comisaria[] = [];
-  listaHorario: Horario[] = [];
+
+  horarios: { value: string; viewValue: string }[] = [
+    { value: 'Turno Manianana', viewValue: 'Turno Maniana' },
+    { value: 'Turno Tarde', viewValue: 'Turno Tarde' },
+    { value: 'Turno Noche', viewValue: 'Turno Noche' },
+    { value: 'Turno Madrugada', viewValue: 'Turno Madrugada' },
+  ];
   constructor(
     private pS: PoliciaService,
     private router: Router,
     private formBuilder: FormBuilder,
     private cS: ComisariaService,
-    private hS: HorarioService,
     private route:ActivatedRoute
   ) {}
   ngOnInit(): void {
    this.route.params.subscribe((data:Params)=>{
-    this.id=data['id'];
-    this.edicion = data['id'] != null;
+    this.id=data['idPolice'];
+    this.edicion = data['idPolice'] != null;
     this.init();
    })
     this.form = this.formBuilder.group({
@@ -68,26 +69,22 @@ export class CrearpoliciaComponent implements OnInit {
       apellido: ['', Validators.required],
       numPlaca: ['', Validators.required],
       comis: ['', Validators.required],
-      hora: ['', Validators.required],
-      horaB: ['', Validators.required],
+      horario: ['', Validators.required],
     });
     this.cS.list().subscribe((data) => {
       this.listaComisarias = data;
       console.log(this.listaComisarias)
     });
-    this.hS.list().subscribe((data) => {
-      this.listaHorario = data;
-    });
+
   }
   registrar():void {
     if (this.form.valid) {
-      this.policia.idPolicia = this.form.value.codigo
-      this.policia.nombre = this.form.value.nombre;
-      this.policia.apellido = this.form.value.apellido;
-      this.policia.num_placa = this.form.value.numPlaca;
+      this.policia.idPolice = this.form.value.codigo
+      this.policia.namePolice = this.form.value.nombre;
+      this.policia.lastPolice = this.form.value.apellido;
+      this.policia.plateNum = this.form.value.numPlaca;
       this.policia.comisaria = this.form.value.comis;
-      this.policia.horario = this.form.value.hora;
-      this.policia.horarioB = this.form.value.horaB;
+      this.policia.timePolice = this.form.value.horario
       this.pS.insert(this.policia).subscribe((data: any) => {
         this.pS.list().subscribe((data) => {
           this.pS.setList(data);
@@ -100,13 +97,12 @@ export class CrearpoliciaComponent implements OnInit {
     if(this.edicion){
       this.pS.listId(this.id).subscribe((data)=>{
         this.form = new FormGroup({
-          codigo:new FormControl(data.idPolicia),
-          nombre: new FormControl(data.nombre),
-          apellido: new FormControl(data.apellido),
-          numPlaca: new FormControl(data.num_placa),
+          codigo:new FormControl(data.idPolice),
+          nombre: new FormControl(data.namePolice),
+          apellido: new FormControl(data.lastPolice),
+          numPlaca: new FormControl(data.plateNum),
           comis: new FormControl(data.comisaria),
-          hora: new FormControl(data.horario),
-          horaB: new FormControl(data.horarioB)
+          horario: new FormControl(data.timePolice)
         })
       })
     }
