@@ -1,7 +1,7 @@
 export class Ciudadano{
     id:string="";
-    dni:string="";
-    nombre:string="";
-    apellido:string="";
-    fecha_nac:Date=new Date();
+    DNI:string="";
+    Nombre:string="";
+    Apellido:string="";
+    FechaNacimiento:Date=new Date();
 }

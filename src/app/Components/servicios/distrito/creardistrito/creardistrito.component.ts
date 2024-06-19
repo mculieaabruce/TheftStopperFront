@@ -50,13 +50,13 @@ export class CreardistritoComponent implements OnInit {
     if (this.form.valid) {
       this.distrito.nombre = this.form.value.nombre;
       this.distrito.ubigeo = this.form.value.ubigeo;
-      this.distrito.codigoPostal = this.form.value.codigoPostal;
+      this.distrito.codigo_postal = this.form.value.codigoPostal;
       this.dS.insert(this.distrito).subscribe(() => {
         this.dS.list().subscribe((data) => {
           this.dS.setList(data);
         });
       });
-      this.router.navigate(['distrito']);
+      this.router.navigate(['servicios/distrito/listar']);
     }
   }
 }
