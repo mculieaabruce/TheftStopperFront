@@ -9,19 +9,27 @@ import { DistritoComponent } from './distrito/distrito.component';
 @Component({
   selector: 'app-servicios',
   standalone: true,
-  imports: [DistritoComponent,RouterOutlet,MatToolbarModule,
+  imports: [
+    DistritoComponent,
+    RouterOutlet,
+    MatToolbarModule,
     MatIconModule,
     MatMenuModule,
     MatButtonModule,
     RouterLink,
-    NgIf],
+    NgIf,
+  ],
   templateUrl: './servicios.component.html',
-  styleUrl: './servicios.component.css'
+  styleUrl: './servicios.component.css',
 })
 export class ServiciosComponent implements OnInit {
-
-  constructor(public route:ActivatedRoute) { }
-  ngOnInit(): void {
-      
+  isAdmin(): any {
+    throw new Error('Method not implemented.');
   }
+  isPolicia(): any {
+    throw new Error('Method not implemented.');
+    }
+
+  constructor(public route: ActivatedRoute) {}
+  ngOnInit(): void {}
 }

@@ -3,7 +3,7 @@
             <mat-icon>warning</mat-icon>
             Alerta Movil
         </button> 
-      <button mat-button [matMenuTriggerFor]="menuCaso">
+      <button mat-button [matMenuTriggerFor]="menuCaso" *ngIf="isAdmin()">
         <mat-icon>work</mat-icon>
         Caso
       </button>
