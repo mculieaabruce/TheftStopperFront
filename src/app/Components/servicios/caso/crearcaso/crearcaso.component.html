@@ -43,7 +43,7 @@
         <mat-label>Foro</mat-label>
         <mat-select formControlName="foro">
           <mat-option *ngFor="let g of listaforo" [value]="g.id">
-            {{ g.id }}
+            {{ g.id}}
           </mat-option>
         </mat-select>
         <mat-error *ngIf="form.get('estado')?.hasError('required')"
