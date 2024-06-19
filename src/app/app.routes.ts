@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 import { InicioComponent } from './inicio/inicio.component';
 import { ForumComponent } from './forum/forum.component';
 import { AboutComponent } from './about/about.component';
-import { LoginComponent } from './login/login/login.component';
+import { LoginComponent } from './Components/servicios/login/login.component';
 import { ServiciosComponent } from './Components/servicios/servicios.component';
 import { DistritoComponent } from './Components/servicios/distrito/distrito.component';
 import { ListardistritoComponent } from './Components/servicios/distrito/listardistrito/listardistrito.component';
@@ -30,6 +30,7 @@ import { CrearpubliComponent } from './Components/servicios/foro/publicacion/cre
 import { RespuestaComponent } from './Components/servicios/respuesta/respuesta.component';
 import { ListarrespComponent } from './Components/servicios/foro/publicacion/respuesta/listarresp/listarresp.component';
 import { CrearrespComponent } from './Components/servicios/foro/publicacion/respuesta/crearresp/crearresp.component';
+import { segGuard } from './guard/seguridad.guard';
 
 export const routes: Routes = [
     {'path': '', component:InicioComponent},
@@ -104,7 +105,9 @@ export const routes: Routes = [
                 path:'crear',component:CrearcomisariaComponent
             }
         ]}
-    ]},
+    ],
+    //canActivate:[segGuard]
+},
     {'path': 'about', component: AboutComponent},
     {'path': 'login', component: LoginComponent}
 ];
