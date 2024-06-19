@@ -4,9 +4,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { Respuesta } from '../../../models/respuesta';
-import { RespuestaService } from '../../../services/respuesta.service';
+
 import { MatButton, MatButtonModule } from '@angular/material/button';
+import { respuesta } from '../../../../Models/respuesta';
+import { RespuestaService } from '../../../../Services/respuesta.service';
 
 @Component({
   selector: 'app-listarrespuesta',
@@ -17,7 +18,7 @@ import { MatButton, MatButtonModule } from '@angular/material/button';
   styleUrl: './listarrespuesta.component.css'
 })
 export class ListarrespuestaComponent implements OnInit{
-  dataSource:MatTableDataSource<Respuesta> = new MatTableDataSource()
+  dataSource:MatTableDataSource<respuesta> = new MatTableDataSource()
   displayedColumns:String[]=[
     'codigo',
     'contenido',

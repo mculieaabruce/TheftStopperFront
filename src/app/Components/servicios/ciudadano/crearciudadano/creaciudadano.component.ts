@@ -41,7 +41,8 @@ export class CrearciudadanoComponent implements OnInit{
   edicion: boolean = false;
   id: number = 0;
 
-  maxFecha: Date = moment().add(-1, 'days').toDate();
+  maxFecha: Date = moment().add(-18, 'years').toDate();
+
 
   constructor(
     private cS: CiudadanoService,
@@ -91,3 +92,5 @@ export class CrearciudadanoComponent implements OnInit{
     }
   }
 }
+
+

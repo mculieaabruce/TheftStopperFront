@@ -9,7 +9,7 @@ const base_url=environment.base
 })
 export class ForoService {
 
-  private url=`${base_url}/ciudadano`
+  private url=`${base_url}/foro`
   private listaCambio = new Subject<foro[]>()
   constructor(private httpClient:HttpClient) { }
   list(){

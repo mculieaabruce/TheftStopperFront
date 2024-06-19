@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
-import { Respuesta } from '../Models/respuesta';
 import { environment } from '../../environments/environments';
+import { respuesta } from '../Models/respuesta';
 
 const base_url=environment.base
 @Injectable({
@@ -10,24 +10,24 @@ const base_url=environment.base
 })
 export class RespuestaService {
   private url=`${base_url}/respuesta`
-  private listaCambio = new Subject<Respuesta[]>()
+  private listaCambio = new Subject<respuesta[]>()
   constructor(private httpClient:HttpClient) { }
   list(){
-    return this.httpClient.get<Respuesta[]>(this.url);
+    return this.httpClient.get<respuesta[]>(this.url);
   }
-  insert(p:Respuesta){
+  insert(p:respuesta){
     return this.httpClient.post(this.url,p);
   }
-  setList(listaNueva: Respuesta[]){
+  setList(listaNueva: respuesta[]){
     this.listaCambio.next(listaNueva)
   }
   getList(){
     return this.listaCambio.asObservable()
   }
   listId(id: number) {
-    return this.httpClient.get<Respuesta>(`${this.url}/${id}`);
+    return this.httpClient.get<respuesta>(`${this.url}/${id}`);
   }
-  update(c:Respuesta) { 
+  update(c:respuesta) { 
     return this.httpClient.put(this.url, c);
   }
   eliminar(id: number) {
