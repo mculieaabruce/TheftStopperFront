@@ -18,4 +18,5 @@ export class PublicacionService {
   }
   insert(p:publicacion){
     return this.httpClient.post(this.url,p);
-  }}
+  }
+}

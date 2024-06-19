@@ -8,6 +8,8 @@ import { MatInput } from '@angular/material/input';
 import { MatTableDataSource } from '@angular/material/table';
 import { publicacion } from '../../../../Models/publicacion';
 import { PublicacionService } from '../../../../Services/publicacion.service';
+import { ɵInternalFormsSharedModule } from '@angular/forms';
+import { MatCommonModule } from '@angular/material/core';
 
 @Component({
   selector: 'app-publicacion',
@@ -23,6 +25,7 @@ export class PublicacionComponent implements OnInit {
   ngOnInit(): void {
     this.pS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
+      this.dataSource=new MatTableDataSource(data);
     });
   }
 }

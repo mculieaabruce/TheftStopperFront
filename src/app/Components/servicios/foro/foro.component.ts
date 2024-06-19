@@ -13,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
   styleUrl: './foro.component.css'
 })
 export class ForoComponent implements OnInit{
+  
   constructor(public route:ActivatedRoute){}
   ngOnInit(): void {
   }
