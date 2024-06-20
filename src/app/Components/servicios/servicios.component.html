@@ -1,5 +1,5 @@
 <div class="grid grid-cols-7 bg-red-400">
-        <button mat-button [matMenuTriggerFor]="menuAlerta">
+        <button mat-button [matMenuTriggerFor]="menuAlerta"*ngIf="isAdmin()">
             <mat-icon>warning</mat-icon>
             Alerta Movil
         </button> 
@@ -7,19 +7,19 @@
         <mat-icon>work</mat-icon>
         Caso
       </button>
-      <button mat-button [matMenuTriggerFor]="menuCiudadano">
+      <button mat-button [matMenuTriggerFor]="menuCiudadano"*ngIf="isAdmin()">
         <mat-icon>contacts</mat-icon>
         Ciudadano
       </button>
-      <button mat-button [matMenuTriggerFor]="menuComisaria">
+      <button mat-button [matMenuTriggerFor]="menuComisaria"*ngIf="isAdmin()">
         <mat-icon>location_city</mat-icon>
         Comisaria
       </button>
-      <button mat-button [matMenuTriggerFor]="menuDistrito">
+      <button mat-button [matMenuTriggerFor]="menuDistrito"*ngIf="isAdmin()">
         <mat-icon>pin_drop</mat-icon>
         Distrito
       </button>
-      <button mat-button [matMenuTriggerFor]="menuPolicia">
+      <button mat-button [matMenuTriggerFor]="menuPolicia"*ngIf="isAdmin()">
         <mat-icon>local_police</mat-icon>
         Policia
       </button>
