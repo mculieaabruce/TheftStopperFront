@@ -6,6 +6,5 @@ export class Policia{
     lastPolice:string = '';
     plateNum:string = '';
     timePolice:string = '';
-    comisaria:Comisaria = new Comisaria()
-
+    comisaria:Comisaria = new Comisaria();
 }

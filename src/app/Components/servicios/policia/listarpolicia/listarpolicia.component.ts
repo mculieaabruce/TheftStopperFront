@@ -9,6 +9,7 @@ import { MatButton, MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { Policia } from '../../../../Models/policia';
 import { PoliciaService } from '../../../../Services/policia.service';
+import { Comisaria } from '../../../../Models/comisaria';
 
 @Component({
   selector: 'app-listarpolicia',
@@ -22,7 +23,8 @@ export class ListarpoliciaComponent implements OnInit{
   dataSource:MatTableDataSource<Policia> = new MatTableDataSource()
   displayedColumns: string[] = ['codigo','nombre', 'apellido', 'numPlaca'
   , 'comisaria','horario','accion01','accion02' ];
-  constructor(private pS: PoliciaService){}
+  comisaria:Comisaria= new Comisaria();
+  constructor(private pS: PoliciaService, ){}
   ngOnInit(): void {
     this.pS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
