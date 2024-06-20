@@ -45,10 +45,10 @@ export class CrearpoliciaComponent implements OnInit {
   listaComisarias: Comisaria[] = [];
 
   horarios: { value: string; viewValue: string }[] = [
-    { value: 'Turno Manianana', viewValue: 'Turno Maniana' },
-    { value: 'Turno Tarde', viewValue: 'Turno Tarde' },
-    { value: 'Turno Noche', viewValue: 'Turno Noche' },
-    { value: 'Turno Madrugada', viewValue: 'Turno Madrugada' },
+    { value: 'Maniana', viewValue: 'Turno Mañana' },
+    { value: 'Tarde', viewValue: 'Turno Tarde' },
+    { value: 'Noche', viewValue: 'Turno Noche' },
+    { value: 'Madrugada', viewValue: 'Turno Madrugada' },
   ];
   constructor(
     private pS: PoliciaService,

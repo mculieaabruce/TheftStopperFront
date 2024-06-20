@@ -21,7 +21,7 @@ import { PoliciaService } from '../../../../Services/policia.service';
 export class ListarpoliciaComponent implements OnInit{
   dataSource:MatTableDataSource<Policia> = new MatTableDataSource()
   displayedColumns: string[] = ['codigo','nombre', 'apellido', 'numPlaca'
-  , 'comisaria','horario','','accion01','accion02' ];
+  , 'comisaria','horario','accion01','accion02' ];
   constructor(private pS: PoliciaService){}
   ngOnInit(): void {
     this.pS.list().subscribe((data) => {

@@ -72,7 +72,7 @@ export const routes: Routes = [
             {
                 path:'crear',component:CrearpoliciaComponent
             }
-        ],canActivate:[segGuard]},
+        ],},
         {'path': 'ciudadano',component:CiudadanoComponent, children:[
             {
                 path:'listar',component:ListarciudadanoComponent
@@ -109,7 +109,7 @@ export const routes: Routes = [
         ],canActivate:[segGuard]
     }
     ],
-    canActivate:[segGuard]
+    //canActivate:[segGuard]
 },
     {'path': 'about', component: AboutComponent},
     {'path': 'login', component: LoginComponent}
