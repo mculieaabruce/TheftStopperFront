@@ -8,7 +8,7 @@ const base_url=environment.base
   providedIn: 'root'
 })
 export class CasoService {
-  private url=`${base_url}/ciudadano`
+  private url=`${base_url}/caso`
   private listaCambio = new Subject<caso[]>()
   constructor(private httpClient:HttpClient) { }
   list(){
