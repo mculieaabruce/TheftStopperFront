@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { NgIf } from '@angular/common';
 import { DistritoComponent } from './distrito/distrito.component';
+import { LoginService } from '../../Services/login.service';
 @Component({
   selector: 'app-servicios',
   standalone: true,
@@ -23,13 +24,24 @@ import { DistritoComponent } from './distrito/distrito.component';
   styleUrl: './servicios.component.css',
 })
 export class ServiciosComponent implements OnInit {
-  isAdmin(): any {
-    throw new Error('Method not implemented.');
+  role: String = '';
+  constructor(private loginService: LoginService, public route: ActivatedRoute){}
+  ngOnInit(): void {
+    console.log(this.role)
   }
-  isPolicia(): any {
-    throw new Error('Method not implemented.');
-    }
+  cerrar() {
+    sessionStorage.clear();
+  }
+  verificar() {
+    this.role = this.loginService.showRole();
+    return this.loginService.verificar();
+  }
+  isAdmin() {
+    return this.role === 'ADMIN';
+  }
 
-  constructor(public route: ActivatedRoute) {}
-  ngOnInit(): void {}
+  isPolicia() {
+    return this.role === 'POLICIA';
+  }
+  
 }
