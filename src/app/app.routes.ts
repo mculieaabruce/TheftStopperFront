@@ -54,6 +54,7 @@ export const routes: Routes = [
                     ]
                 },
             ],canActivate:[segGuard]
+        
         },
     ]},
     {'path': 'servicios', component:ServiciosComponent, children:[
@@ -96,8 +97,7 @@ export const routes: Routes = [
             {
                 path:'crear',component:CrearcasoComponent
             }
-        ],canActivate:[segGuard]
-    },
+        ],canActivate:[segGuard]},
         {'path': 'comisaria',component:ComisariaComponent, children:[
             {
                 path:'listar',component:ListarcomisariaComponent
@@ -105,7 +105,6 @@ export const routes: Routes = [
             {
                 path:'crear',component:CrearcomisariaComponent
             }
-            
         ],canActivate:[segGuard]
     }
     ],

@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
     this.loginService.login(request).subscribe(
       (data: any) => {
         sessionStorage.setItem('token', data.jwttoken);
-        this.router.navigate(['servicios']);
+        this.router.navigate(['/servicios']);
       },
       (error) => {
         this.mensaje = 'Credenciales incorrectas!!!';
