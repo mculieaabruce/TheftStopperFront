@@ -13,7 +13,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { CommonModule, NgIf } from '@angular/common';
-import { ActivatedRoute, Params, Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Params, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { Policia } from '../../../../Models/policia';
 import { Comisaria } from '../../../../Models/comisaria';
 import { PoliciaService } from '../../../../Services/policia.service';
@@ -32,7 +32,7 @@ import { ComisariaService } from '../../../../Services/comisaria.service';
     MatSelectModule,
     CommonModule,
     RouterLink,
-    NgIf,
+    NgIf,RouterOutlet,
   ],
   templateUrl: './crearpolicia.component.html',
   styleUrl: './crearpolicia.component.css',
