@@ -71,7 +71,8 @@ export const routes: Routes = [
             },
             {
                 path:'crear',component:CreardistritoComponent
-            }
+            },
+            { path: 'ediciones/:id', component: CreardistritoComponent }
         ],canActivate:[segGuard]},
         {'path': 'policia',component:PoliciaComponent, children:[
             {
@@ -79,7 +80,8 @@ export const routes: Routes = [
             },
             {
                 path:'crear',component:CrearpoliciaComponent
-            }
+            },
+            { path: 'ediciones/:id', component: CrearpoliciaComponent }
         ],canActivate:[segGuard]},
         {'path': 'ciudadano',component:CiudadanoComponent, children:[
             {
@@ -87,7 +89,8 @@ export const routes: Routes = [
             },
             {
                 path:'crear',component:CrearciudadanoComponent
-            }
+            },
+            { path: 'ediciones/:id', component: CrearciudadanoComponent }
         ],canActivate:[segGuard]},
         {'path': 'alertamovil',component:AlertamovilComponent, children:[
             {
@@ -95,7 +98,8 @@ export const routes: Routes = [
             },
             {
                 path:'crear',component:CrearalertaComponent
-            }
+            },
+            { path: 'ediciones/:id', component: CrearalertaComponent }
         ],canActivate:[segGuard]},
         {'path': 'caso',component:CasoComponent, children:[
             {
@@ -103,7 +107,8 @@ export const routes: Routes = [
             },
             {
                 path:'crear',component:CrearcasoComponent
-            }
+            },
+            { path: 'ediciones/:id', component: CrearcasoComponent }
         ],canActivate:[segGuard]},
         {'path': 'comisaria',component:ComisariaComponent, children:[
             {
@@ -111,7 +116,8 @@ export const routes: Routes = [
             },
             {
                 path:'crear',component:CrearcomisariaComponent
-            }
+            },
+            { path: 'ediciones/:id', component: CrearcomisariaComponent }
         ],canActivate:[segGuard]},
         {'path': 'reportes',component:ReporteComponent, children:[
             {
