@@ -23,6 +23,10 @@
         <mat-icon>local_police</mat-icon>
         Policia
       </button>
+      <button mat-button [matMenuTriggerFor]="menuReporte">
+        <mat-icon>library_books</mat-icon>
+        Reportes
+      </button>
     <mat-menu #menuAlerta="matMenu">
         <button mat-menu-item routerLink="/servicios/alertamovil">Listar</button>
         <button mat-menu-item routerLink="/servicios/alertamovil/crear">Registrar</button>
@@ -47,6 +51,10 @@
         <button mat-menu-item routerLink="/servicios/policia">Listar</button>
         <button mat-menu-item routerLink="/servicios/policia/crear">Registrar</button>
     </mat-menu>
+    <mat-menu #menuReporte="matMenu">
+      <button mat-menu-item routerLink="/servicios/reporte/reporte01">Alertas de Ciudadanos por Distrito</button>
+      <button mat-menu-item routerLink="/servicios/policia/crear">Registrar</button>
+  </mat-menu>
 </div>
 
 

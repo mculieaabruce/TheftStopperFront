@@ -31,6 +31,13 @@ import { RespuestaComponent } from './Components/servicios/respuesta/respuesta.c
 import { ListarrespComponent } from './Components/servicios/foro/publicacion/respuesta/listarresp/listarresp.component';
 import { CrearrespComponent } from './Components/servicios/foro/publicacion/respuesta/crearresp/crearresp.component';
 import { segGuard } from './guard/seguridad.guard';
+import { ReporteComponent } from './Components/servicios/reporte/reporte.component';
+import { Reporte01Component } from './Components/servicios/reporte/reporte01/reporte01.component';
+import { Reporte02Component } from './Components/servicios/reporte/reporte02/reporte02.component';
+import { Reporte03Component } from './Components/servicios/reporte/reporte03/reporte03.component';
+import { Reporte04Component } from './Components/servicios/reporte/reporte04/reporte04.component';
+import { Reporte05Component } from './Components/servicios/reporte/reporte05/reporte05.component';
+import { Reporte06Component } from './Components/servicios/reporte/reporte06/reporte06.component';
 
 export const routes: Routes = [
     {'path': '', component:InicioComponent},
@@ -105,8 +112,27 @@ export const routes: Routes = [
             {
                 path:'crear',component:CrearcomisariaComponent
             }
-        ],canActivate:[segGuard]
-    }
+        ],canActivate:[segGuard]},
+        {'path': 'reportes',component:ReporteComponent, children:[
+            {
+                path:'reporte01',component:Reporte01Component
+            },
+            {
+                path:'reporte02',component:Reporte02Component
+            },
+            {
+                path:'reporte03',component:Reporte03Component
+            },
+            {
+                path:'reporte04',component:Reporte04Component
+            },
+            {
+                path:'reporte05',component:Reporte05Component
+            },
+            {
+                path:'reporte06',component:Reporte06Component
+            }
+        ],canActivate:[segGuard]},
     ],
     //canActivate:[segGuard]
 },
