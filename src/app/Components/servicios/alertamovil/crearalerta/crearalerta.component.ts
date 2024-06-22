@@ -41,7 +41,7 @@ import { CiudadanoService } from '../../../../Services/ciudadano.service';
   templateUrl: './crearalerta.component.html',
   styleUrl: './crearalerta.component.css'
 })
-export class CrearalertaComponent implements OnInit{
+export class CrearalertaComponent{
   form:FormGroup = new FormGroup({})
   alerta: alertaMovil = new alertaMovil()
   listaCiudadanos: Ciudadano[] = []
@@ -56,33 +56,33 @@ export class CrearalertaComponent implements OnInit{
     private amS:AlertaMovilService,
     private router:Router,
     private formBuilder:FormBuilder,
-    private route:ActivatedRoute,
     private cS:CiudadanoService
   ){}
 ngOnInit(): void {
   this.form = this.formBuilder.group({
     mensaje: ['', Validators.required],
+    ubicacion: ['', Validators.required],
     comentario: ['', Validators.required],
     ciudadano: ['', Validators.required],
     fecha: ['', Validators.required],
-    ubicacion: ['', Validators.required],
+    
   })
   this.picker.open()
-  this.cS.list().subscribe((data: Ciudadano[])=>{ this.listaCiudadanos = data})
+  this.cS.list().subscribe((data)=>{ this.listaCiudadanos = data})
   }
   aceptar():void{
     if(this.form.valid){
       this.alerta.messAlert = this.form.value.mensaje
       this.alerta.ubiAlert = this.form.value.ubicacion
       this.alerta.comentAlert = this.form.value.comentario
-      this.alerta.ciudadano = this.form.value.ciudadano
+      this.alerta.ciudadano.id = this.form.value.ciudadano
       this.alerta.alertDate = this.form.value.fecha
       this.amS.insert(this.alerta).subscribe((data)=>{
-        this.amS.list().subscribe((data: alertaMovil[])=> {
+        this.amS.list().subscribe((data)=> {
           this.amS.setList(data)
         })
       })
-      this.router.navigate(['alertaMovil'])
+      this.router.navigate(['/servicios/alertaMovil/listar'])
     }
   }
 }

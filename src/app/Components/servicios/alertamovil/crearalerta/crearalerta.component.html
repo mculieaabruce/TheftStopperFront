@@ -42,7 +42,7 @@
         <mat-label>Ciudadano</mat-label>
         <mat-select formControlName="ciudadano">
           <mat-option *ngFor="let c of listaCiudadanos" [value]="c.id">
-            {{ c.nombre }}
+            {{ c.nombre}}
           </mat-option>
         </mat-select>
         <mat-error *ngIf="form.get('ciudadano')?.hasError('required')"
@@ -69,7 +69,7 @@
       <br />
 
       <button mat-raised-button color="primary">Aceptar</button>
-      <button mat-raised-button color="warn" routerLink="/alertamovil">
+      <button mat-raised-button color="warn" routerLink="/servicios/alertamovil/listar">
         Cancelar
       </button>
     </form>
