@@ -1,6 +1,6 @@
-export class Distrito{
-    id:number=0
-    nombre:string=""
-    ubigeo:string=""
-    codigo_postal:string=""
+export class Distrito {
+  id: number = 0;
+  nombre: string = '';
+  ubigeo: string = '';
+  codigo_postal: string = '';
 }

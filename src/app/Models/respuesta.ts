@@ -1,7 +1,8 @@
+import { Users } from './User';
+
 export class respuesta {
-  idRespuesta: number = 0;
-  contenido: String = '';
-  fechaCreacion: Date = new Date(Date.now());
-  horaCreacion: Date = new Date(Date.now());
-  autorResp: String = '';
+  idAnswer: number = 0;
+  contentAnswer: String = '';
+  dateAnswer: Date = new Date(Date.now());
+  user: Users = new Users();
 }
