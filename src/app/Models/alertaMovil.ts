@@ -5,6 +5,6 @@ export class alertaMovil{
     ubiAlert:string='';
     comentAlert:string='';
     ciudadano:Ciudadano=new Ciudadano();
-    alertDate:Date=new Date();
+    alertDate:Date = new Date(Date.now())
     
 }
