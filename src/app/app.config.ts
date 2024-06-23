@@ -21,7 +21,7 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     provideClientHydration(),
     provideAnimationsAsync(),
-    provideHttpClient(withFetch(), withInterceptorsFromDi()),provideCharts(withDefaultRegisterables()),
+    provideHttpClient(withFetch(), withInterceptorsFromDi()),
     importProvidersFrom(
       JwtModule.forRoot({
         config: {
