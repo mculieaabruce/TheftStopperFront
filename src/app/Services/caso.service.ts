@@ -4,7 +4,7 @@ import { caso } from '../Models/caso';
 import { HttpClient } from '@angular/common/http';
 import { casosAtrasadosDTO } from '../Models/casosAtrasadosDTO';
 import { casosXdistritoDTO } from '../Models/casosXdistritoDTO';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 const base_url=environment.base
 @Injectable({
   providedIn: 'root'
@@ -24,5 +24,11 @@ export class CasoService {
   }
   getList() {
     return this.listaCambio.asObservable();
+  }
+  getsolvedcases(): Observable<casosXdistritoDTO[]>{
+    return this.httpClient.get<casosXdistritoDTO[]>(
+      `${this.url}/casosresueltoxdistrito`
+    )
+
   }
 }

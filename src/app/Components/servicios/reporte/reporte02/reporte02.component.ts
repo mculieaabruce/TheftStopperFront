@@ -56,7 +56,6 @@ export class Reporte02Component implements OnInit{
           ],
           borderColor:'rgba(173,216,230,1)',
           borderWidth:1
-
       },
     ];
     })
