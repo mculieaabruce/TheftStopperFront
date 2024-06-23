@@ -19,4 +19,10 @@ export class PublicacionService {
   insert(p:publicacion){
     return this.httpClient.post(this.url,p);
   }
+  setlist(listanueva:publicacion[]){
+    this.listaCambio.next(listanueva);
+  }
+  getlist(){
+    return this.listaCambio.asObservable();
+  }
 }

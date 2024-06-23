@@ -26,12 +26,15 @@ import { alertaMovil } from '../../../../Models/alertaMovil';
 import { AlertaMovilService } from '../../../../Services/alerta-movil.service';
 import { Ciudadano } from '../../../../Models/ciudadano';
 import { CiudadanoService } from '../../../../Services/ciudadano.service';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-crearalerta',
   standalone: true,
-  imports: [
-    MatIconModule,
+  imports: [BrowserModule,
+    HttpClientModule,
+    FormsModule,MatIconModule,
     MatFormFieldModule,
     NgxMatDatetimePickerModule,
     NgxMatTimepickerModule,
