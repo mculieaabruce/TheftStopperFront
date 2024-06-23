@@ -7,7 +7,7 @@
           <mat-label>Alerta Movil</mat-label>
           <mat-select formControlName="alerta">
             <mat-option *ngFor="let c of listaAlertas" [value]="c.idAlert">
-              {{ c.idAlert }}
+              {{ c.messAlert }}
             </mat-option>
           </mat-select>
           <mat-error *ngIf="form.get('alerta')?.hasError('required')"
@@ -43,7 +43,7 @@
         <mat-label>Foro</mat-label>
         <mat-select formControlName="foro">
           <mat-option *ngFor="let g of listaforo" [value]="g.idForo">
-            {{ g.idForo }}
+            {{ g.nombreForo}}
           </mat-option>
         </mat-select>
         <mat-error *ngIf="form.get('estado')?.hasError('required')"
