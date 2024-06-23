@@ -6,6 +6,7 @@ import { casosAtrasadosDTO } from '../Models/casosAtrasadosDTO';
 import { casosXdistritoDTO } from '../Models/casosXdistritoDTO';
 import { Observable, Subject } from 'rxjs';
 import { ciudadanoXcasoDTO } from '../Models/ciudadanoXcasoDTO';
+import { casosXdistritoDTO } from '../Models/casosXdistritoDTO';
 const base_url=environment.base
 @Injectable({
   providedIn: 'root'
@@ -31,10 +32,16 @@ export class CasoService {
       `${this.url}/ciudadanoPorcaso`
     );
   }
+  getCasosxDistrito(): Observable<casosXdistritoDTO[]> {
+    return this.httpClient.get<casosXdistritoDTO[]>(
+      `${this.url}/ciudadanoPorcaso`
+    );
+  }
   getsolvedcases(): Observable<casosXdistritoDTO[]>{
     return this.httpClient.get<casosXdistritoDTO[]>(
       `${this.url}/casosresueltoxdistrito`
     )
 
   }
+  
 }
