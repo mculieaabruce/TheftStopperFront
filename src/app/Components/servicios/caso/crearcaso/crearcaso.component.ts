@@ -53,7 +53,7 @@ export class CrearcasoComponent implements OnInit{
     });
     this.aS.list().subscribe((data: alertaMovil[]) => {
       this.listaAlertas = data;
-    });x
+    });
     this.fS.list().subscribe((data: foro[]) => {
       this.listaforo = data;
     });

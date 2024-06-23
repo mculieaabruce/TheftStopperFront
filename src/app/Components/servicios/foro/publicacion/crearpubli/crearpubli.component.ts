@@ -71,8 +71,8 @@ export class CrearpubliComponent implements OnInit{
       this.publicacion.datePubli=this.form.value.fechacreacion,
       this.publicacion.descripPubli=this.form.value.descripcion,
       this.publicacion.statusPubli=this.form.value.estado,
-      this.publicacion.foro.nombreForo=this.form.value.foroid,
-      this.publicacion.user.username=this.form.value.autorid
+      this.publicacion.foro.idForo=this.form.value.foroid,
+      this.publicacion.user.id=this.form.value.autorid
       this.cps.insert(this.publicacion).subscribe((data)=>{
         this.cps.list().subscribe((data)=>{
           this.cps.setlist(data)
