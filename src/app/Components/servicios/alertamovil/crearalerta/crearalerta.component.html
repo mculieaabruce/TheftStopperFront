@@ -1,6 +1,10 @@
 <div class="title-container">
     <h2 class="title">Registro de Alertas</h2>
     <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+      <mat-form-field class="example-full-width"  *ngIf="edicion" >
+        <mat-label>Codigo</mat-label>
+        <input matInput placeholder="Codigo" formControlName="codigo" />
+      </mat-form-field>
       <br />
       <mat-form-field class="example-full-width">
         <mat-label>Mensaje:</mat-label>
@@ -41,7 +45,7 @@
       <mat-form-field class="example-full-width">
         <mat-label>Ciudadano</mat-label>
         <mat-select formControlName="ciudadano">
-          <mat-option *ngFor="let c of listaCiudadanos" [value]="c.id">
+          <mat-option *ngFor="let c of listaciudadanos" [value]="c.id">
             {{ c.nombre}}
           </mat-option>
         </mat-select>
@@ -51,7 +55,7 @@
       </mat-form-field>
       <br />
       
-      <mat-form-field appearance="fill" class="example-full-width " >
+      <mat-form-field appearance="fill" class="example-full-width">
         <input matInput [ngxMatDatetimePicker]="picker" 
           placeholder="Ingrese fecha"
           formControlName="fecha"

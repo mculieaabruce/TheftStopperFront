@@ -1,1 +1,84 @@
-<p>crearpubli works!</p>
+<div class="align-middle text-center">
+    <mat-card class="w-auto">
+        <mat-card-title>
+            <p class="text-3xl">Registro de Publicaciones</p>
+        </mat-card-title>
+        <div class="title-container">
+            <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+              <br />
+              <mat-form-field appearance="fill" class="example-full-width">
+                <input matInput [ngxMatDatetimePicker]="picker" 
+                  placeholder="Ingrese fecha"
+                  formControlName="fechacreacion"
+                >
+                    <mat-datepicker-toggle matSuffix [for]="$any(picker)"></mat-datepicker-toggle>
+                <ngx-mat-datetime-picker #picker [showSpinners]="true" [showSeconds]="false"
+                [stepHour]="1" [stepMinute]="1" [stepSecond]="1"
+                [touchUi]="false" [enableMeridian]="false"
+                [disableMinute]="false" [hideTime]="false"></ngx-mat-datetime-picker>
+        
+                <mat-error *ngIf="form.get('fecha')?.hasError('required')"
+                  >La fecha es obligatoria.</mat-error
+                >
+              </mat-form-field>
+              <br />
+              <mat-form-field class="example-full-width">
+                <mat-label>Ingresa la descripcion</mat-label>
+                <textarea
+                  matInput
+                  placeholder="Descripcion"
+                  formControlName="descripcion"
+                ></textarea>
+                <mat-error *ngIf="form.get('descripcion')?.hasError('required')"
+                  >La descripcion es obligatoria.</mat-error
+                >
+              </mat-form-field>
+              <br />
+              <mat-form-field class="example-full-width">
+                <mat-label>Estado de Alerta</mat-label>
+                <mat-select formControlName="estado">
+                  <mat-option *ngFor="let e of estados" [value]="e.value">
+                    {{ e.viewvalue }}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('estados')?.hasError('required')"
+                  >El estado es obligatorio.</mat-error
+                >
+              </mat-form-field>
+              <br />
+              <mat-form-field class="example-full-width">
+                <mat-label>Foro</mat-label>
+                <mat-select formControlName="foroid">
+                  <mat-option *ngFor="let f of forum" [value]="f.idForo">
+                    {{ f.nombreForo }}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('foro')?.hasError('required')"
+                  >El foro es obligatorio.</mat-error
+                >
+              </mat-form-field>
+              <br />
+              <mat-form-field class="example-full-width">
+                <mat-label>Autor</mat-label>
+                <mat-select formControlName="autorid">
+                  <mat-option *ngFor="let u of autor">
+                    {{ u.username }}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('autorid')?.hasError('required')"
+                  >El autor es obligatorio.</mat-error
+                >
+              </mat-form-field>
+              <br />
+              
+        
+              <button mat-raised-button color="primary">Aceptar</button>
+              <button mat-raised-button color="warn" routerLink="/foro/publicacion/listar">
+                Cancelar
+              </button>
+            </form>
+          </div>
+    </mat-card>
+</div>    
+    
+

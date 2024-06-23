@@ -53,24 +53,24 @@ export class CrearcasoComponent implements OnInit{
     });
     this.aS.list().subscribe((data: alertaMovil[]) => {
       this.listaAlertas = data;
-    });
+    });x
     this.fS.list().subscribe((data: foro[]) => {
       this.listaforo = data;
     });
   }
   aceptar(): void {
     if (this.form.valid) {
-      this.caso.alertaMovil = this.form.value.alerta;
+      this.caso.alertaMovil = this.form.value.alerta.idAlert;
       this.caso.statusCase = this.form.value.estado;
       this.caso.commentCase = this.form.value.comentario;
-      this.caso.foro=this.form.value.foro;
+      this.caso.foro=this.form.value.foro.idForo;
       this.cS.insert(this.caso).subscribe((data) => {
         this.cS.list().subscribe((data: caso[]) => {
           this.cS.setList(data);
         });
       });
 
-      this.router.navigate(['caso']);
+      this.router.navigate(['servicios/caso/listar']);
     }
   }
 }
