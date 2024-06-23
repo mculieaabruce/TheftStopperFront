@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environments';
 import { caso } from '../Models/caso';
 import { HttpClient } from '@angular/common/http';
-import { casosAtrasadosDTO } from '../Models/casosAtrasadosDTO';
 import { casosXdistritoDTO } from '../Models/casosXdistritoDTO';
 import { Observable, Subject } from 'rxjs';
 import { ciudadanoXcasoDTO } from '../Models/ciudadanoXcasoDTO';
