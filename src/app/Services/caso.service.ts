@@ -5,19 +5,19 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { ciudadanoXcasoDTO } from '../Models/ciudadanoXcasoDTO';
 import { casosXdistritoDTO } from '../Models/casosXdistritoDTO';
-const base_url=environment.base
+const base_url = environment.base;
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CasoService {
-  private url=`${base_url}/caso`
-  private listaCambio = new Subject<caso[]>()
-  constructor(private httpClient:HttpClient) { }
-  list(){
+  private url = `${base_url}/caso`;
+  private listaCambio = new Subject<caso[]>();
+  constructor(private httpClient: HttpClient) {}
+  list() {
     return this.httpClient.get<caso[]>(this.url);
   }
-  insert(p:caso){
-    return this.httpClient.post(this.url,p);
+  insert(p: caso) {
+    return this.httpClient.post(this.url, p);
   }
   setList(listaNueva: caso[]) {
     this.listaCambio.next(listaNueva);
@@ -33,6 +33,11 @@ export class CasoService {
   getCasosxDistrito(): Observable<casosXdistritoDTO[]> {
     return this.httpClient.get<casosXdistritoDTO[]>(
       `${this.url}/ciudadanoPorcaso`
+    );
+  }
+  getsolvedcases(): Observable<casosXdistritoDTO[]> {
+    return this.httpClient.get<casosXdistritoDTO[]>(
+      `${this.url}/casosresueltoxdistrito`
     );
   }
 }

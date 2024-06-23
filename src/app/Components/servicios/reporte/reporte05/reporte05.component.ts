@@ -16,9 +16,9 @@ export class Reporte05Component implements OnInit {
   };
   barChartLabels: string[] = [];
   //barChartType: ChartType = 'pie';
-  barChartType: ChartType = 'doughnut';
+  //barChartType: ChartType = 'doughnut';
   //barChartType: ChartType = 'line';
-  //barChartType: ChartType = 'bar';
+  barChartType: ChartType = 'bar';
   //barChartType: ChartType = 'polarArea';
 
   barChartLegend = true;
