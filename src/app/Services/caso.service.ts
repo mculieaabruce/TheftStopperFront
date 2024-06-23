@@ -3,7 +3,6 @@ import { environment } from '../../environments/environments';
 import { caso } from '../Models/caso';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
-import { casosXdistritoDTO } from '../Models/casosXdistritoDTO';
 import { ciudadanoXcasoDTO } from '../Models/ciudadanoXcasoDTO';
 const base_url=environment.base
 @Injectable({
