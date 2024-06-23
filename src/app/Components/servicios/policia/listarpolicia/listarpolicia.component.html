@@ -28,8 +28,8 @@
 
       <ng-container matColumnDef="comisaria">
         <th mat-header-cell *matHeaderCellDef>Comisaria</th>
-        <td mat-cell *matCellDef="let comisaria" >
-          {{comisaria.nameComis}}
+        <td mat-cell *matCellDef="let element" >
+          {{element.comisaria.nameComis}}
         </td>
       </ng-container>
       <ng-container matColumnDef="horario">
@@ -44,7 +44,7 @@
           <button
             mat-raised-button
             color="warn"
-            [routerLink]="['ediciones', element.idPolice]"
+            [routerLink]="['/servicios/policia/ediciones', element.idPolice]"
           >
           <mat-icon>edit</mat-icon></button>
         </td></ng-container
@@ -65,3 +65,7 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
   </div>
+  <mat-paginator
+  [pageSizeOptions]="[5, 10, 25, 100]"
+  showFirstLastButtons
+></mat-paginator>

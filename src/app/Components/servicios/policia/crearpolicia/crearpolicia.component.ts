@@ -18,6 +18,7 @@ import { Policia } from '../../../../Models/policia';
 import { Comisaria } from '../../../../Models/comisaria';
 import { PoliciaService } from '../../../../Services/policia.service';
 import { ComisariaService } from '../../../../Services/comisaria.service';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-crearpolicia',
@@ -33,6 +34,7 @@ import { ComisariaService } from '../../../../Services/comisaria.service';
     CommonModule,
     RouterLink,
     NgIf,RouterOutlet,
+    MatIconModule
   ],
   templateUrl: './crearpolicia.component.html',
   styleUrl: './crearpolicia.component.css',
@@ -59,8 +61,8 @@ export class CrearpoliciaComponent implements OnInit {
   ) {}
   ngOnInit(): void {
    this.route.params.subscribe((data:Params)=>{
-    this.id=data['idPolice'];
-    this.edicion = data['idPolice'] != null;
+    this.id = data['id'];
+      this.edicion = data['id'] != null;
     this.init();
    })
     this.form = this.formBuilder.group({
@@ -83,17 +85,17 @@ export class CrearpoliciaComponent implements OnInit {
       this.policia.namePolice = this.form.value.nombre;
       this.policia.lastPolice = this.form.value.apellido;
       this.policia.plateNum = this.form.value.numPlaca;
-      this.policia.comisaria = this.form.value.comis;
+      this.policia.comisaria.idComisaria = this.form.value.comis;
       this.policia.timePolice = this.form.value.horario
       this.pS.insert(this.policia).subscribe((data: any) => {
         this.pS.list().subscribe((data) => {
           this.pS.setList(data);
         });
       });
-      this.router.navigate(['policia'])
+      this.router.navigate(['/servicios/policia/listar'])
     }
   }
-  init():void{
+  init(){
     if(this.edicion){
       this.pS.listId(this.id).subscribe((data)=>{
         this.form = new FormGroup({
@@ -101,8 +103,8 @@ export class CrearpoliciaComponent implements OnInit {
           nombre: new FormControl(data.namePolice),
           apellido: new FormControl(data.lastPolice),
           numPlaca: new FormControl(data.plateNum),
-          comis: new FormControl(data.comisaria),
-          horario: new FormControl(data.timePolice)
+          horario: new FormControl(data.timePolice),
+          comis: new FormControl(data.comisaria.idComisaria), 
         })
       })
     }
