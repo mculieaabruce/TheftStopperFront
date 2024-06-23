@@ -1,8 +1,13 @@
 <router-outlet></router-outlet>
 <div [hidden]="route.children.length !== 0">
     <div class="text-center">
-        <p class=" font-serif text-6xl font-bold text-black pt-6 px-6 underline decoration-red-500">Foro</p>
+        <p class=" font-serif text-6xl font-bold text-black pt-6 px-6 underline decoration-red-500">Foro</p>  
     </div>
+    <br>
+    <div >
+        <p class="font-serif text-2xl p-2 text-center">Dentro de este foro puedes encontrar información relevante sobre los incidentes sucedidos.</p>
+    </div>
+       
     <div>
         <app-publicacion></app-publicacion>
     </div>  
