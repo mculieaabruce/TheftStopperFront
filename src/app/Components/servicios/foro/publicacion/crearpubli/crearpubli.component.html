@@ -61,7 +61,7 @@
               <mat-form-field class="example-full-width">
                 <mat-label>Autor</mat-label>
                 <mat-select formControlName="autorid">
-                  <mat-option *ngFor="let u of autor">
+                  <mat-option *ngFor="let u of autor" [value]="u.id">
                     {{ u.username }}
                   </mat-option>
                 </mat-select>
@@ -70,8 +70,6 @@
                 >
               </mat-form-field>
               <br />
-              
-        
               <button mat-raised-button color="primary">Aceptar</button>
               <button mat-raised-button color="warn" routerLink="/foro/publicacion/listar">
                 Cancelar

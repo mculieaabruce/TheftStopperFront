@@ -16,6 +16,7 @@ import { PublicacionService } from '../../../../../Services/publicacion.service'
 import { ForoService } from '../../../../../Services/foro.service';
 import { publicacion } from '../../../../../Models/publicacion';
 import { MatCardModule } from '@angular/material/card';
+import { UserService } from '../../../../../Services/user.service';
 
 @Component({
   selector: 'app-crearpubli',
@@ -53,7 +54,7 @@ export class CrearpubliComponent implements OnInit{
     {value:'Revision',viewvalue:'Revision'},
   ]
   @ViewChild('picker') picker!: NgxMatDatetimepicker<any>;
-  constructor(private cps:PublicacionService,private router:Router,private formBuilder:FormBuilder,private fS:ForoService){}
+  constructor(private cps:PublicacionService,private router:Router,private formBuilder:FormBuilder,private fS:ForoService,private uS:UserService){}
   ngOnInit(): void {
     this.form=this.formBuilder.group({
       fechacreacion:['',Validators.required],
@@ -62,6 +63,7 @@ export class CrearpubliComponent implements OnInit{
       foroid:['',Validators.required],
       autorid:['',Validators.required],
     })
+    this.uS.list().subscribe((data)=>(this.autor=data))
     this.fS.list().subscribe((data)=>{this.forum=data})
   }
   aceptar():void{
