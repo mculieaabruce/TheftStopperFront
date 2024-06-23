@@ -23,4 +23,10 @@ export class AlertaMovilService {
   getList() {
     return this.listaCambio.asObservable();
   }
+  listId(id: number) {
+    return this.httpClient.get<alertaMovil>(`${this.url}/${id}`);
+  }
+  update(c: alertaMovil) {
+    return this.httpClient.put(this.url, c);
+  }
 }
