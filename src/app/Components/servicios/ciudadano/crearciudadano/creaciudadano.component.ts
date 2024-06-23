@@ -75,10 +75,9 @@ export class CrearciudadanoComponent implements OnInit{
           this.cS.setList(data);
         });
       });
-      this.router.navigate(['servicios/ciudadano']);
+      this.router.navigate(['servicios/ciudadano/listar']);
     }
   }
-
   init() {
     if (this.edicion) {
       this.cS.listId(this.id).subscribe((data) => {

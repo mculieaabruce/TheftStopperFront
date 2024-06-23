@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environments';
 import { caso } from '../Models/caso';
 import { HttpClient } from '@angular/common/http';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { casosXdistritoDTO } from '../Models/casosXdistritoDTO';
+import { ciudadanoXcasoDTO } from '../Models/ciudadanoXcasoDTO';
 const base_url=environment.base
 @Injectable({
   providedIn: 'root'
@@ -22,5 +24,10 @@ export class CasoService {
   }
   getList() {
     return this.listaCambio.asObservable();
+  }
+  getCizbycase(): Observable<ciudadanoXcasoDTO[]> {
+    return this.httpClient.get<ciudadanoXcasoDTO[]>(
+      `${this.url}/ciudadanoPorcaso`
+    );
   }
 }

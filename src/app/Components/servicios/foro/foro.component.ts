@@ -4,8 +4,6 @@ import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { Users } from '../../../Models/User';
-import { LoginService } from '../../../Services/login.service';
 
 @Component({
   selector: 'app-foro',

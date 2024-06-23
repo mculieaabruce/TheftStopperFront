@@ -32,7 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-crearalerta',
   standalone: true,
-  imports: [BrowserModule,
+  imports: [
     HttpClientModule,
     FormsModule,MatIconModule,
     MatFormFieldModule,
